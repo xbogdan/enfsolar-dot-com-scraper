@@ -5,15 +5,18 @@ from utils import DetailPageScraper, read_input_from_csv, DetailPageParser, get_
 
 # program parameters
 arg_parser = argparse.ArgumentParser(description="enfsolar.com scraper")
-arg_parser.add_argument('--csv-file', default=None, type=str, help="File path for .csv list with post codes.")
+arg_parser.add_argument('--csv-file', default=None, type=str, help="File path for .csv list of URLs.")
 arg_parser.add_argument("--extract", action="store_true", help="Run the extractor.")
 arg_parser.add_argument("--scrape", action="store_true", help="Run the scraper.")
+arg_parser.add_argument(
+    "--headless", action="store_true", help="No window for selenium scraper."
+)
 args = arg_parser.parse_args()
 
 if __name__ == '__main__':
     if args.scrape:
         urls = read_input_from_csv(args.csv_file)
-        with DetailPageScraper() as scraper:
+        with DetailPageScraper(args.headless) as scraper:
             for url in tqdm(urls):
                 scraper.make_request(url)
 
