@@ -34,8 +34,6 @@ then
 
 ```--scrape```, Download HTML content of each URL. 
 
-```--use-browser```, use a selenium browser to scrape
-
 ```--headless```, do no show the selenium browser window, when scraping 
 
 ```--extract```, extracts contact information from each file
