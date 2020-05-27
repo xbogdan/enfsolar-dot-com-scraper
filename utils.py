@@ -17,10 +17,6 @@ def read_input_from_csv(path):
         return [row[0] for row in reader]
 
 
-def make_simple_request():
-    pass
-
-
 def get_files_to_parse():
     files = os.listdir('files')
     files = [f'files/{file}' for file in files if isfile(f'files/{file}')]
