@@ -36,7 +36,7 @@ def get_driver(headless=True):
         options.headless = True
 
     driver = webdriver.Firefox(firefox_profile=profile, options=options)
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(3)
 
     return driver
 

@@ -14,6 +14,9 @@ arg_parser.add_argument(
 args = arg_parser.parse_args()
 
 if __name__ == '__main__':
+    if not path.exists('files'):
+        os.mkdir('files')
+
     if args.scrape:
         urls = read_input_from_csv(args.csv_file)
         with DetailPageScraper(args.headless) as scraper:
