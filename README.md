@@ -32,8 +32,11 @@ then
 
 ### Params
 
-```--scrape```, Download HTML content of each URL. 
+```--scrape```, download HTML content of each URL 
 
 ```--headless```, do no show the selenium browser window, when scraping 
 
 ```--extract```, extracts contact information from each file
+
+```--csv-file```, path to the input CSV file
+
