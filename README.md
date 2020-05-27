@@ -1,5 +1,5 @@
 # enfsolar.com Scraper
-Given a list of URLs the program extracts company contact information. 
+Given a list of URLs, as a .csv file, the program extracts company contact information from each individual URL.
 
 ## Installation
 ```pip install -r requirements.txt```
