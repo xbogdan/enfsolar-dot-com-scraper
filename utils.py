@@ -23,13 +23,20 @@ def get_files_to_parse():
     return files
 
 
-def get_driver(headless=True):
+def get_driver(headless=True, proxies=None):
     profile = webdriver.FirefoxProfile()
     profile.set_preference("general.useragent.override", HEADERS["User-Agent"])
 
     options = webdriver.FirefoxOptions()
     if headless:
         options.headless = True
+
+    if proxies is not None:
+        profile.set_preference("network.proxy.type", 1)
+        profile.set_preference("network.proxy.http", proxies["ip"])
+        profile.set_preference("network.proxy.http_port", int(proxies["port"]))
+        profile.set_preference("network.proxy.ssl", proxies["ip"])
+        profile.set_preference("network.proxy.ssl_port", int(proxies["port"]))
 
     driver = webdriver.Firefox(firefox_profile=profile, options=options)
     driver.implicitly_wait(3)
@@ -80,9 +87,6 @@ class DetailPageScraper:
 
 
 class DetailPageParser:
-    def __init__(self):
-        pass
-
     def extract(self, html):
         from bs4 import BeautifulSoup
 
