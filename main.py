@@ -1,4 +1,5 @@
 import argparse
+from os import path
 from tqdm import tqdm
 
 from utils import DetailPageScraper, read_input_from_csv, DetailPageParser, get_files_to_parse, write_report

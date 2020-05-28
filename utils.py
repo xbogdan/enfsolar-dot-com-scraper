@@ -90,6 +90,10 @@ class DetailPageParser:
 
         profile = soup.find(attrs={'class': 'enf-company-profile'})
 
+        if not profile:
+            print(f'Company {soup.title.text} has no contact info')
+            return {}
+
         company_name = profile.find('h1').text.strip()
         try:
             address = profile.find(attrs={'itemprop': 'address'}).text.strip()
